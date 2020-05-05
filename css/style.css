@@ -16,42 +16,6 @@
     color:  #e7e9ee;
 }
 
-
-.font-italic {
-    font-size: 70px;
-    font-family: "Tangerine",cursive;
-    margin-top: 30px;
-    text-shadow: 5px 5px 5px #8794c0;
-}
-
-h2.font-italic {
-    font-family: "Tangerine",cursive;
-    font-weight: 500;
-    color: #e7e9ee;
-    margin-top: 50px;
-    margin-right: 0;
-}
-
-.btn {
-    margin-top: 50px;
-    border-radius: 50px 50px 50px 50px;
-    padding: 20px;
-    background-color: #8794c0;
-    font-family: "Roboto";
-    border-color: #5a6794;
-    color:  #e7e9ee;
-}
-
-
-.btn.btn-resume {
-    margin-top: 50px;
-    margin-left: 30px;
-}
-
-.btn :hover {
-    display: none;
-}
-
 #index-container {
     background-color: #1c2135;
     color: #e7e9ee;
@@ -63,43 +27,8 @@ h2.font-italic {
     box-shadow: 5px 5px 5px #e7e9ee;
 }
 
-h3.font-italic {
-    margin-left: -15px;
-}
-
-.block-divider {
-    margin-top: 50px;
-    color: #e7e9ee;
-}
-
-p {
-    margin-left: 350px;
-    margin-right: -25px;
-    margin-top: -250px;
-}
-
-h4.font-italic {
-   margin-right: -15px;
-}
-
-span.project {
-    margin: 25px;
-}
-
-.portfolio-image .rounded-circle  {
-   margin-left: 125px;
-}
-
-
-
 #bottom-container {
     background-color: #1c2135;
-}
-
-.second-row {
-    margin-top: -175px;
-    margin-left: 400px;
-    padding-bottom: 50px;
 }
 
 .social-links li a i {
