@@ -1,0 +1,17 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I.Generator</title>
+</head>
+<body>
+    {% for idea in ideas %}
+        {{ idea.category_name }}<br>
+        {{ idea.idea_name }}<br>       
+        {{ idea.idea_description }}<br>
+        {{ idea.date }}<br>
+    {% endfor %}
+</body>
+</html>
