@@ -1,17 +1,12 @@
-  
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I.Generator</title>
-</head>
-<body>
+{% extends "index.html" %}
+{% block content %}
+
+    <h2>I'm extending the index template!</h2>
     {% for idea in ideas %}
         {{ idea.category_name }}<br>
         {{ idea.idea_name }}<br>       
         {{ idea.idea_description }}<br>
         {{ idea.date }}<br>
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
