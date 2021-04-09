@@ -1,6 +1,10 @@
 .nav-extended {
     background-color: #3C455C;
 }
+body {
+    scroll-behavior: smooth;
+}
+
 
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
@@ -15,5 +19,9 @@
 }
 
 .introduction-section {
+    background-color: #9AACB8;
+}
+
+.card-panel {
     background-color: #9AACB8;
 }

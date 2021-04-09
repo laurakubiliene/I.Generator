@@ -25,7 +25,7 @@
                     <li><a href="{{ url_for('get_ideas') }}">Introduction</a></li>
                     <li><a href="#">Sign In</a></li>
                     <li><a href="#">Sign Out</a></li>
-                    <li><a href="#">Register</a></li>
+                    <li><a href="{{ url_for('register') }}">Register</a></li>
                     <li><a href="#">New Idea</a></li>
                     <li><a href="#">Manage Categories</a></li>
                 </ul>
@@ -34,10 +34,10 @@
 <!--sidenav for monile taken from materialise-->
                 <ul class="sidenav" id="mobile-demo">
                     <li><h4 class="center-align">I.Generator</h4></li>
-                    <li><a href="{{ url_for('get_ideas') }}">Introduction</a></li>
+                    <li><a href="{{ url_for('register') }}">Introduction</a></li>
                     <li><a href="#">Sign In</a></li>
                     <li><a href="#">Sign Out</a></li>
-                    <li><a href="#">Register</a></li>
+                    <li><a href="V">Register</a></li>
                     <li><a href="#">New Idea</a></li>
                     <li><a href="#">Manage Categories</a></li>
                 </ul>
@@ -45,12 +45,17 @@
     </header>
 
     <section class="introduction-section">
-        <h2 class="center-align introduction-text">INTRODUCTION</h2>
-        <h6 class="center-align introduction-text">“Ideas are like fish. You don’t make the fish, you catch the fish.” — David Lynch.<br>
-            The biggest challenge on the way to creativity is ussually the ideas and<br>
-            one having an image of genious producing ideas from a thin air.<br>
-            But here is a place to find ideas, negotiate collaborations, get inspired,<br>
-            share your dreams or whatever you have on a wonderful mind.</h6>
+        <div class="row">
+            <div class="center-align col-12">
+                <h3 class="introduction-text">INTRODUCTION</h3>
+                <h6 class="center-align introduction-text">“Ideas are like fish. You don’t make the fish, you catch the fish.” — David
+                    Lynch.<br>
+                    The biggest challenge on the way to creativity is ussually the ideas and<br>
+                    one having an image of genious producing ideas from a thin air.<br>
+                    But here is a place to find ideas, negotiate collaborations, get inspired,<br>
+                    share your dreams or whatever you have on a wonderful mind.</h6>
+            </div>
+        </div>
     </section>
     {% block content %}
     {% endblock %}
