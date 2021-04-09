@@ -19,10 +19,10 @@
 <!--main navigation taken from materialise-->
         <nav class="nav-extended text-shadow">
             <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">I.Generator</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+                <a href="{{ url_for('get_ideas') }}" class="brand-logo">I.Generator</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#">Introduction</a></li>
+                    <li><a href="{{ url_for('get_ideas') }}">Introduction</a></li>
                     <li><a href="#">Sign In</a></li>
                     <li><a href="#">Sign Out</a></li>
                     <li><a href="#">Register</a></li>
@@ -33,8 +33,8 @@
         </nav>
 <!--sidenav for monile taken from materialise-->
                 <ul class="sidenav" id="mobile-demo">
-                    <li><h4 class="center-align"></h4></li>
-                    <li><a href="#">Introduction</a></li>
+                    <li><h4 class="center-align">I.Generator</h4></li>
+                    <li><a href="{{ url_for('get_ideas') }}">Introduction</a></li>
                     <li><a href="#">Sign In</a></li>
                     <li><a href="#">Sign Out</a></li>
                     <li><a href="#">Register</a></li>
@@ -44,6 +44,14 @@
 
     </header>
 
+    <section class="introduction-section">
+        <h2 class="center-align introduction-text">INTRODUCTION</h2>
+        <h6 class="center-align introduction-text">“Ideas are like fish. You don’t make the fish, you catch the fish.” — David Lynch.<br>
+            The biggest challenge on the way to creativity is ussually the ideas and<br>
+            one having an image of genious producing ideas from a thin air.<br>
+            But here is a place to find ideas, negotiate collaborations, get inspired,<br>
+            share your dreams or whatever you have on a wonderful mind.</h6>
+    </section>
     {% block content %}
     {% endblock %}
 
