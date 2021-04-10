@@ -60,6 +60,33 @@
     {% block content %}
     {% endblock %}
 
+
+    <!--username password and submit button taken from materialise and adjusted like in miniproject-->
+    <h3 class="center-align">Register</h3>
+
+    <div class="row center-align">
+        <form class="col-8 center-align" method="POST" action="{{ url_for('register') }}">
+            <div class="card-panel">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="username" name="username" type="text" class="validate">
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                <div class="row center-align">
+                    <div class="input-field col s12">
+                        <input id="password" name="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row center-align">
+                    <button type="submit" class="col s12 btn-large">Register </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

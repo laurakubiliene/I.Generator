@@ -27,7 +27,7 @@ def get_ideas():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    return render_template("register.html")
+    return render_template("/register")
 
 
 if __name__ == "__main__":
