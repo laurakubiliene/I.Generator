@@ -44,6 +44,25 @@
 
     </header>
 
+    <section>
+        <!-- flash messages taken from mini project -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flashes">
+                        <h4 class="center-align">{{ message }}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
     <section class="introduction-section">
         <div class="row">
             <div class="center-align col-12">
