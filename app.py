@@ -51,7 +51,7 @@ def register():
 
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
-     if request.method == "POST":
+    if request.method == "POST":
         #check the username
         existing_user = mongo.db.user.find_one(
             {"username": request.form.get("username").lower()})
@@ -72,7 +72,7 @@ def signin():
             flash("Incorrect Username/Password")
             return redirect(url_for('signin'))
     
-        return render_template("signin.html")
+    return render_template('signin.html')
 
 
 if __name__ == "__main__":
