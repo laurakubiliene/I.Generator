@@ -9,19 +9,17 @@
         {{ idea.date }}<br>
     {% endfor %}
 
-    <ul class="collapsible popout">
+    <ul class="collapsible">
+        {% for idea in ideas %}
         <li>
-            <div class="collapsible-header"><i class="material-icons"></i>First</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            <div class="collapsible-header"><i class="material-icons"></i>
+            <strong>{{ idea.idea_name }}</strong> : {{ idea.date }}
+            </div>
+            <div class="collapsible-body"><strong>{{ idea.category_name }}</strong>
+            <p>{{ idea.idea_description }}<br></p>
+            </div>
         </li>
-        <li>
-            <div class="collapsible-header"><i class="material-icons"></i>Second</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-            <div class="collapsible-header"><i class="material-icons"></i>Third</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
+        {% endfor %}
     </ul>
 
 {% endblock %}

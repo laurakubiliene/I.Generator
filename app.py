@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_ideas")
 def get_ideas():
-    ideas = mongo.db.ideas.find()
+    ideas = list(mongo.db.ideas.find())
     return render_template("ideas.html", ideas=ideas)
 
 
