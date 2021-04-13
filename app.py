@@ -112,7 +112,7 @@ def add_idea():
         return redirect(url_for("get_ideas"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_idea.html", categories=categories)
+    return render_template("add_idea.html")
 
 
 
