@@ -7,7 +7,13 @@
         {% for idea in ideas %}
         <li>
             <div class="collapsible-header"><i class="material-icons"></i>
-                <strong>{{ idea.category_name }}</strong> : {{ idea.date }}
+                <div class="col s3">
+                    <a href="" class="btn-small">Done</a>
+                    <a href="" class="btn-small">Edit</a>
+                </div>
+                <div class="col s9">
+                    <strong>{{ idea.category_name }}</strong> : {{ idea.date }}
+                </div>
             </div>
             <div class="collapsible-body"><strong>{{ idea.category_name }}</strong>
                 <p>{{ idea.idea_description }}<br></p>

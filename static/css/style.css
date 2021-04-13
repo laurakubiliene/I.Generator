@@ -55,3 +55,15 @@ body {
 .input-field .prefix.active {
     color: #3C455C;
 }
+
+/* css from mini-project*/
+.btn-small {
+    margin: 5px;
+    background-color: #3C455C;
+    color: #9AACB8;
+}
+
+.collapsible-header .col strong {
+    margin: 5px;
+    line-height: 42px;
+}
