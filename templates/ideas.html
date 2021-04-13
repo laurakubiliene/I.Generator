@@ -9,11 +9,11 @@
         {{ idea.date }}<br>
     {% endfor %}
 
-    <ul class="collapsible">
+    <ul class="collapsible popout">
         {% for idea in ideas %}
         <li>
             <div class="collapsible-header"><i class="material-icons"></i>
-            <strong>{{ idea.idea_name }}</strong> : {{ idea.date }}
+            <strong>{{ idea.category_name }}</strong> : {{ idea.date }}
             </div>
             <div class="collapsible-body"><strong>{{ idea.category_name }}</strong>
             <p>{{ idea.idea_description }}<br></p>
