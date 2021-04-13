@@ -96,10 +96,25 @@ def signout():
     session.pop("user")
     return redirect(url_for("signin"))
 
-@app.route("/add_idea")
+
+@app.route("/add_idea", methods=["GET", "POST"])
 def add_idea():
+    if request.method == "POST":
+        idea = {
+            "category_name": request.form.get("category_name"),
+            "idea_name": request.form.get("idea_name"),
+            "idea_description": request.form.get("idea_description"),
+            "idea_date": request.form.get("idea_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.ideas.insert_one(idea)
+        flash("Idea Successfully Added")
+        return redirect(url_for("get_ideas"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_idea.html", categories=categories)
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

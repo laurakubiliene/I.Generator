@@ -1,22 +1,17 @@
 {% extends "index.html" %}
 {% block content %}
 
-
-    {% for idea in ideas %}
-        {{ idea.category_name }}<br>
-        {{ idea.idea_name }}<br>       
-        {{ idea.idea_description }}<br>
-        {{ idea.date }}<br>
-    {% endfor %}
+    <h3 class="center-align">All Ideas</h3>
 
     <ul class="collapsible">
         {% for idea in ideas %}
         <li>
             <div class="collapsible-header"><i class="material-icons"></i>
-            <strong>{{ idea.category_name }}</strong> : {{ idea.date }}
+                <strong>{{ idea.category_name }}</strong> : {{ idea.date }}
             </div>
             <div class="collapsible-body"><strong>{{ idea.category_name }}</strong>
-            <p>{{ idea.idea_description }}<br></p>
+                <p>{{ idea.idea_description }}<br></p>
+                <p><em>by: {{ idea.created_by}}</em></p>
             </div>
         </li>
         {% endfor %}

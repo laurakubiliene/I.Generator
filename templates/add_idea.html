@@ -3,9 +3,9 @@
 
     <h3 class="center-align">Add Idea</h3>
 
-
+    <!--select category-->
     <div class="row card-panel">
-        <form class="col s12" method="POST" action="">
+        <form class="col s12" method="POST" action="{{ url_for(add_idea)}}">
             <div class="row">
                 <div class="input-field col s12">
                     <select id="category_name" name="category_name" class="validate" required>
@@ -17,6 +17,7 @@
                     <label for="category_name">Select Category</label>
                 </div>
             </div>
+            <!--idea name and description-->
             <div class="row">
                 <div class="input-field col s12">
                     <input id="idea_name" name="idea_name" minlength="5" maxlength="50" 
@@ -31,12 +32,17 @@
                     <label for="idea_description">Idea Description</label>
                 </div>
             </div>
+            <!--date the idea was submitted-->
             <div class="row">
                 <div class="input-field col s12">
                     <input id="idea_date" name="idea_date" 
                     type="text" class="datepicker validate" required>
                     <label for="idea_date">Idea Date</label>
                 </div>
+            </div>
+            <!--submit button-->
+            <div class="row center-align">
+                <button type="submit" class="col s12 btn-large">Add Idea</button>
             </div>
         </form>
     </div>
