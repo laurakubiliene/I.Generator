@@ -98,7 +98,8 @@ def signout():
 
 @app.route("/add_idea")
 def add_idea():
-    return render_template("add_idea.html")
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_idea.html", categories=categories)
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
