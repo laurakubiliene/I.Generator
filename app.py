@@ -112,7 +112,16 @@ def add_idea():
         return redirect(url_for("get_ideas"))
 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_idea.html")
+    return render_template("add_idea.html", categories=categories)
+
+
+@app.route("/edit_idea/<idea_id", methods=["GET", "POST"])
+def edit_idea(idea_id):
+    idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_idea.html", idea=idea, categories=categories)
+
 
 
 

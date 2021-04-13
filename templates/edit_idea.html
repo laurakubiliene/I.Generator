@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+{% block content %}
+
+    <h3 class="center-align">Edit Idea</h3>
+
+    <!--select category-->
+    <div class="row card-panel">
+        <form class="col s12" method="POST" action="{{ url_for('edit_idea', idea_id=idea._id) }}">
+            <div class="row">
+                <div class="input-field col s12">
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="category_name">Select Category</label>
+                </div>
+            </div>
+            <!--idea name and description-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="idea_name" name="idea_name" minlength="5" maxlength="50" 
+                    type="text" class="validate" required>
+                    <label for="idea_name">Idea Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="idea_description" name="idea_description" minlength="5" 
+                    maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="idea_description">Idea Description</label>
+                </div>
+            </div>
+            <!--date the idea was submitted-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="idea_date" name="idea_date" 
+                    type="text" class="datepicker validate" required>
+                    <label for="idea_date">Idea Date</label>
+                </div>
+            </div>
+            <!--submit button-->
+            <div class="row center-align">
+                <button type="submit" class="col s12 btn-large">Edit Idea</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
