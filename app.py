@@ -115,7 +115,7 @@ def add_idea():
     return render_template("add_idea.html", categories=categories)
 
 
-@app.route("/edit_idea/<idea_id", methods=["GET", "POST"])
+@app.route("/edit_idea/<idea_id>", methods=["GET", "POST"])
 def edit_idea(idea_id):
     idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
 

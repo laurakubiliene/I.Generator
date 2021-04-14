@@ -66,6 +66,5 @@ body {
 .collapsible-header .col strong {
     margin: 5px;
     line-height: 42px;
-    background-color: #3C455C;
-    color: #9AACB8;
+    color: #3C455C;  
 }
