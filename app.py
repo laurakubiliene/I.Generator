@@ -117,6 +117,17 @@ def add_idea():
 
 @app.route("/edit_idea/<idea_id>", methods=["GET", "POST"])
 def edit_idea(idea_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "idea_name": request.form.get("idea_name"),
+            "idea_description": request.form.get("idea_description"),
+            "idea_date": request.form.get("idea_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.ideas.update({"_id":ObjectId(idea_id)}, submit)
+        flash("Idea Successfully Updated")
+
     idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
 
     categories = mongo.db.categories.find().sort("category_name", 1)

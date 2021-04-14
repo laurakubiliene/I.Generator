@@ -8,8 +8,10 @@
         <li>
             <div class="collapsible-header"><i class="material-icons"></i>
                 <div class="col s3">
+                    {% if session.user|lower == idea.created_by|lower %}
                     <a href="" class="btn-small">Done</a>
                     <a href="{{ url_for('edit_idea', idea_id=idea._id)}}" class="btn-small">Edit</a>
+                    {% endif %}
                 </div>
                 <div class="col s9">
                     <strong>{{ idea.category_name }}</strong> : {{ idea.date }}
