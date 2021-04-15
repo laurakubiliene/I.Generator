@@ -134,6 +134,18 @@ def edit_idea(idea_id):
     return render_template("edit_idea.html", idea=idea, categories=categories)
 
 
+@app.route("/delete_idea/<idea_id>")
+def delete_idea(idea_id):
+    mongo.db.ideas.remove({"_id":ObjectId(idea_id)}, submit)
+    flash("Idea Successfully Removed")
+    return redirect(url_for("get_ideas"))
+
+
+@app.route("/get_categories")
+def get_categories():
+    categories = list(mongo.db.categories.find().sort('category_name', 1))
+    return render_template('categories.html', categories=categories)
+
 
 
 if __name__ == "__main__":
