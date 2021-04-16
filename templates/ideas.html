@@ -3,6 +3,22 @@
 
     <h3 class="center-align">All Ideas</h3>
 
+    <div class="row card-panel">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12 m8">
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search Ideas</label>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('get_ideas') }}" class="btn">Reset</a>
+                    <button type="submit" class="btn"> Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% if ideas|length > 0 %}
     <ul class="collapsible">
         {% for idea in ideas %}
         <li>
@@ -24,5 +40,8 @@
         </li>
         {% endfor %}
     </ul>
+    {% else %}
+        <h3 class="center-align">No Results Found</h3>
+    {% endif %}
 
 {% endblock %}

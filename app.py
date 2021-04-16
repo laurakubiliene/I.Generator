@@ -25,6 +25,13 @@ def get_ideas():
     return render_template("ideas.html", ideas=ideas)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    ideas = list(mongo.db.ideas.find({"$text": {"$search": query}}))
+    return render_template("ideas.html", ideas=ideas)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
