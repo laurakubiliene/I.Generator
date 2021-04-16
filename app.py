@@ -41,7 +41,7 @@ def register():
 
         if existing_user:
             flash("Username already exists !")
-            return redirect( url_for("register"))
+        return redirect(url_for("register"))
 
         register = {
             "username": request.form.get("username").lower(),
@@ -67,22 +67,22 @@ def signin():
         if existing_user:
             #ensure hash password matches existing user
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome !, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "profile", username=session["user"]))
-            else:
-            #invalid password
-                flash("Incorrect Username/Password")
-            return redirect(url_for('signin'))
-
+                    existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome !, {}".format(
+                    request.form.get("username")))
+            return redirect(url_for(
+                "profile", username=session["user"]))
         else:
+            #invalid password
+            flash("Incorrect Username/Password")
+        return redirect(url_for('signin'))
+
+    else:
             #usename does not exist
             flash("Incorrect Username/Password")
             return redirect(url_for('signin'))
-    
+
     return render_template('signin.html')
 
 
@@ -91,7 +91,7 @@ def profile(username):
     #grab the session username from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    if session["user"]:        
+    if session["user"]:
         return render_template("profile.html", username=username)
     return redirect(url_for("signin"))
 
@@ -132,7 +132,7 @@ def edit_idea(idea_id):
             "idea_date": request.form.get("idea_date"),
             "created_by": session["user"]
         }
-        mongo.db.ideas.update({"_id":ObjectId(idea_id)}, submit)
+        mongo.db.ideas.update({"_id": ObjectId(idea_id)}, submit)
         flash("Idea Successfully Updated")
 
     idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
@@ -143,7 +143,7 @@ def edit_idea(idea_id):
 
 @app.route("/delete_idea/<idea_id>")
 def delete_idea(idea_id):
-    mongo.db.ideas.remove({"_id":ObjectId(idea_id)}, submit)
+    mongo.db.ideas.remove({"_id": ObjectId(idea_id)}, submit)
     flash("Idea Successfully Removed")
     return redirect(url_for("get_ideas"))
 
@@ -174,7 +174,7 @@ def edit_category(category_id):
         submit = {
             "category_name": request.form.get("category_name"),
         }
-        mongo.db.ideas.update({"_id":ObjectId(idea_id)}, submit)
+        mongo.db.ideas.update({"_id": ObjectId(idea_id)}, submit)
         flash("Category Successfully Updated")
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
@@ -185,11 +185,9 @@ def edit_category(category_id):
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
-    mongo.db.ideas.remove({"_id":ObjectId(category_id)}, submit)
+    mongo.db.ideas.remove({"_id": ObjectId(category_id)}, submit)
     flash("Category Successfully Removed")
     return redirect(url_for("get_categories"))
-
-
 
 
 if __name__ == "__main__":
