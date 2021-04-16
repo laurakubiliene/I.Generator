@@ -147,6 +147,36 @@ def get_categories():
     return render_template('categories.html', categories=categories)
 
 
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    if request.method == "POST":
+        category = {
+            "category_name": request.form.get("category_name"),
+        }
+        mongo.db.ideas.insert_one(category)
+        flash("Category Successfully Added")
+        return redirect(url_for("get_categories"))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_category.html", categories=categories)
+
+
+@app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+def edit_category(category_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+        }
+        mongo.db.ideas.update({"_id":ObjectId(idea_id)}, submit)
+        flash("Category Successfully Updated")
+
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_category.html", categories=categories)
+
+
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
