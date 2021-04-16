@@ -148,6 +148,13 @@ def delete_idea(idea_id):
     return redirect(url_for("get_ideas"))
 
 
+@app.route("/rate_idea/<idea_id>")
+def rate_idea(idea_id):
+    mongo.db.ideas.rate({"_id": ObjectId(idea_id)}, submit)
+    flash("Thank You !")
+    return redirect(url_for("get_ideas"))
+
+
 @app.route("/get_categories")
 def get_categories():
     categories = list(mongo.db.categories.find().sort('category_name', 1))

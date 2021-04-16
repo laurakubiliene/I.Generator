@@ -31,6 +31,21 @@ body {
     color: #9AACB8;
 }
 
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+
 /* I took this css from materialise to edit colours and style*/
 /* label color */
 .input-field label {
