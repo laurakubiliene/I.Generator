@@ -143,14 +143,14 @@ def edit_idea(idea_id):
 
 @app.route("/delete_idea/<idea_id>")
 def delete_idea(idea_id):
-    mongo.db.ideas.remove({"_id": ObjectId(idea_id)}, submit)
+    mongo.db.ideas.remove({"_id": ObjectId(idea_id)}, 'submit')
     flash("Idea Successfully Removed")
     return redirect(url_for("get_ideas"))
 
 
 @app.route("/rate_idea/<idea_id>")
 def rate_idea(idea_id):
-    mongo.db.ideas.rate({"_id": ObjectId(idea_id)}, submit)
+    mongo.db.ideas.find_one({"_id": ObjectId(idea_id)}, 'submit')
     flash("Thank You !")
     return redirect(url_for("get_ideas"))
 
