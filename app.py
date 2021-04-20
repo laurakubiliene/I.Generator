@@ -60,31 +60,30 @@ def register():
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
     if request.method == "POST":
-        #check the username
-        existing_user = mongo.db.user.find_one(
+        # check if username exists in db
+        existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            #ensure hash password matches existing user
+            # ensure hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                         session["user"] = request.form.get("username").lower()
-                        flash("Welcome !, {}".format(
+                        flash("Welcome, {}".format(
                             request.form.get("username")))
                         return redirect(url_for(
                             "profile", username=session["user"]))
             else:
-                #invalid password
-                flash("Incorrect Username/Password")
-                return redirect(url_for('signin'))
+                # invalid password match
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("signin"))
 
         else:
-            #usename does not exist
-            flash("Incorrect Username/Password")
-            return redirect(url_for('signin'))
+            # username doesn't exist
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("signin"))
 
-    return render_template('signin.html')
-
+    return render_template("signin.html")
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
@@ -164,9 +163,7 @@ def get_categories():
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
-        category = {
-            "category_name": request.form.get("category_name"),
-        }
+        category = {"category_name": request.form.get("category_name")}
         mongo.db.ideas.insert_one(category)
         flash("Category Successfully Added")
         return redirect(url_for("get_categories"))
@@ -181,7 +178,7 @@ def edit_category(category_id):
         submit = {
             "category_name": request.form.get("category_name"),
         }
-        mongo.db.ideas.update({"_id": ObjectId(idea_id)}, submit)
+        mongo.db.ideas.update({"_id": ObjectId(idea_id)}, 'submit')
         flash("Category Successfully Updated")
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
