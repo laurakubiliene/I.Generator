@@ -121,6 +121,7 @@ def add_idea():
     return render_template("add_idea.html", categories=categories)
 
 
+
 @app.route("/edit_idea/<idea_id>", methods=["GET", "POST"])
 def edit_idea(idea_id):
     if request.method == "POST":
@@ -138,6 +139,7 @@ def edit_idea(idea_id):
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_idea.html", idea=idea, categories=categories)
+
 
 
 @app.route("/delete_idea/<idea_id>")
@@ -175,6 +177,7 @@ def add_category():
     return render_template("add_category.html", categories=categories)
 
 
+
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
     if request.method == "POST":
@@ -188,6 +191,7 @@ def edit_category(category_id):
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template('edit_category.html', categories=categories)
+
 
 
 @app.route("/delete_category/<category_id>") 
