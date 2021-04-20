@@ -184,12 +184,12 @@ def edit_category(category_id):
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
 
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_category.html", categories=categories)
+    return render_template('edit_category.html', categories=categories)
 
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
-    mongo.db.ideas.remove({"_id": ObjectId(category_id)}, 'submit')
+    mongo.db.ideas.remove({"_id": ObjectId(category_id)}, submit)
     flash("Category Successfully Removed")
     return redirect(url_for("get_categories"))
 
