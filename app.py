@@ -183,6 +183,7 @@ def edit_category(category_id):
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
+            "created_by": session["user"]
         }
         mongo.db.categories.update({"_id": ObjectId(idea_id)}, 'submit')
         flash("Category Successfully Updated")
