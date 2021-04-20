@@ -147,6 +147,7 @@ def delete_idea(idea_id):
     return redirect(url_for("get_ideas"))
 
 
+
 @app.route("/rate_idea/<idea_id>")
 def rate_idea(idea_id):
     mongo.db.ideas.find_one({"_id": ObjectId(idea_id)}, 'submit')
@@ -154,17 +155,19 @@ def rate_idea(idea_id):
     return redirect(url_for("get_ideas"))
 
 
+
 @app.route("/get_categories")
 def get_categories():
     categories = list(mongo.db.categories.find().sort('category_name', 1))
-    return render_template('categories.html', categories=categories)
+    return render_template("categories.html", categories=categories)
+
 
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
     if request.method == "POST":
         category = {"category_name": request.form.get("category_name")}
-        mongo.db.ideas.insert_one(category)
+        mongo.db.categories.insert_one(category)
         flash("Category Successfully Added")
         return redirect(url_for("get_categories"))
 
@@ -178,7 +181,7 @@ def edit_category(category_id):
         submit = {
             "category_name": request.form.get("category_name"),
         }
-        mongo.db.ideas.update({"_id": ObjectId(idea_id)}, 'submit')
+        mongo.db.categories.update({"_id": ObjectId(idea_id)}, 'submit')
         flash("Category Successfully Updated")
 
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
@@ -189,7 +192,7 @@ def edit_category(category_id):
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
-    mongo.db.ideas.remove({"_id": ObjectId(category_id)}, submit)
+    mongo.db.categories.remove({"_id": ObjectId(category_id)}, submit)
     flash("Category Successfully Removed")
     return redirect(url_for("get_categories"))
 
