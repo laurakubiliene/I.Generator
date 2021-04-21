@@ -78,6 +78,8 @@ particular user.
 4. Manage categories is also secured feature so only somebody who is laura can see the feature.
 5. Users can easily sign out, but they still will be able to read the ideas.
 6. everytime user is editing or adding something the flash messages appear to inform that the move was successful.
+7. I opened and tested this app with different browsers, such as Microsoft edge, chrome, firefox.
+Opened and tested features with different gadgets such as laptop, tablet, different phone models.
 
 ###### Deployment
 
