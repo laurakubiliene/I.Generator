@@ -21,9 +21,9 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_ideas'), url_for('get_categories')}}">Home</a></li>
                     {% if session.user %}
-                        <!--<li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>-->
+                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('add_idea') }}">New Idea</a></li>
-                        <!--<li><a href="{{ url_for('get_categories') }}">Manage Categories</a>-->
+                        <li><a href="{{ url_for('get_categories') }}">Manage Categories</a>
                         <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('signin') }}">Sign In</a></li>   
