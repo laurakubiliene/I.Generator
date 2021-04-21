@@ -91,7 +91,7 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     if session["user"]:
-        return render_template("index.html", username=username)
+        return render_template("profile.html", username=username)
     return redirect(url_for("signin"))
 
 
@@ -146,14 +146,6 @@ def edit_idea(idea_id):
 def delete_idea(idea_id):
     mongo.db.ideas.remove({"_id": ObjectId(idea_id)}, 'submit')
     flash("Idea Successfully Removed")
-    return redirect(url_for("get_ideas"))
-
-
-
-@app.route("/rate_idea/<idea_id>")
-def rate_idea(idea_id):
-    mongo.db.ideas.find_one({"_id": ObjectId(idea_id)}, 'submit')
-    flash("Thank You !")
     return redirect(url_for("get_ideas"))
 
 

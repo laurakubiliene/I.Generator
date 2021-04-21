@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% block content %} 
+    
+    <div class="row center-align">
+        <div class="col-8 center-align">
+            <div class="card-panel">
+                <h3 class="center-align">
+                    {{ username }}'s Profile
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <p class="center-align">
+                Not You?
+                <a href="{{ url_for('register')}}">Register</a>
+            </p>
+            <p class="center-align">
+                Registered?
+                <a href="{{ url_for('signin')}}">Sign In</a>
+            </p>
+        </div>
+    </div>
+
+{% endblock %}
