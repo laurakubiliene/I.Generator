@@ -70,7 +70,11 @@ The features that can be added in a future are:
 
 ###### Testing
 
-
+1. The register form and route is working, the only issue is that it does not recognize the same user,
+so many users with the same name and password can register.
+2. Sign in form was not working at all, but it was only white space and python blank lines that neede fixing.
+3. Users can create a new idea but only the idea the particular user creates can be edited or deleted by that particular user.
+4. 
 
 
 
