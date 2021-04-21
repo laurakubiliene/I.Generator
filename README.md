@@ -73,63 +73,26 @@ The features that can be added in a future are:
 1. The register form and route is working, the only issue is that it does not recognize the same user,
 so many users with the same name and password can register.
 2. Sign in form was not working at all, but it was only white space and python blank lines that neede fixing.
-3. Users can create a new idea but only the idea the particular user creates can be edited or deleted by that particular user.
-4. 
+3. Users can create a new idea but only the idea the particular user creates can be edited or deleted by that 
+particular user.
+4. Manage categories is also secured feature so only somebody who is laura can see the feature.
+5. Users can easily sign out, but they still will be able to read the ideas.
+6. everytime user is editing or adding something the flash messages appear to inform that the move was successful.
 
+###### Deployment
 
+This project was deployed to heroku as showed on the course and 
+I am lucky as there were no issues with deploying the whole project as well as adding different prts to it.
 
+###### Content
 
+The idea of the project and most of a code is taken from code institute mini project, 
+but I changed the purpose of the app.
+I hope I added a different perspective on how the mini project can be used.
+I also tried to make it look a bit different, but still need a deeper knowledge of python and coding in general.
+The quote is by David Lynch taken from internet in a hope to inspire users to write one.
 
+###### Aknowledgment
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
-
-Welcome Laura Kubiliene,
-
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+I appreacite very much the help of Tim Nielsen and Aaron Sinnott for this project,
+Tutor team from code instite and fellow coders from Slack community.
