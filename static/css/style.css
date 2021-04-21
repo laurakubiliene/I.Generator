@@ -6,9 +6,16 @@ html {
     font-family: 'Quicksand', sans-serif;
 }
 
+body {
+    margin: auto;
+}
+
 .nav-extended {
     background-color: #3C455C;
-    padding: 24px;
+}
+
+.nav-wrapper {
+    margin: 240px;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -19,7 +26,7 @@ html {
 }
 
 .brand-logo {
-    padding-right: 5px;
+    padding-left: 450px;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -29,10 +36,11 @@ html {
     font-family: 'Quicksand', sans-serif;
 }
 
-.introduction-text {
+h6.center-align.introduction-text {
     color: #3C455C;
-    line-height: 3;
+    line-height: 2;
     font-family: 'Quicksand', sans-serif;
+    margin: 10px;
 }
 
 .card-panel {
@@ -68,32 +76,31 @@ html {
     color: #3C455C;  
 }
 
-
 /* I took this css from materialise to edit colours and style*/
-/* label color */
+/* label color 
 .input-field label {
     color: #3C455C;
 }
-   /* label focus color */
+   /* label focus color 
 .input-field input[type=text]:focus + label {
     color: #3C455C;
 }
-   /* label underline focus color */
+   /* label underline focus color 
 .input-field input[type=text]:focus {
     border-bottom: 1px solid #000;
     box-shadow: 0 1px 0 0 #000;
 }
-   /* valid color */
+   /* valid color 
 .input-field input[type=text].valid {
     border-bottom: 1px solid #3C455C;
     box-shadow: 0 1px 0 0 #3C455C;
 }
-   /* invalid color */
+   /* invalid color 
 .input-field input[type=text].invalid {
     border-bottom: 1px solid #3C455C;
     box-shadow: 0 1px 0 0 #3C455C;
 }
-   /* icon prefix focus color */
+   /* icon prefix focus color 
 .input-field .prefix.active {
     color: #3C455C;
 }

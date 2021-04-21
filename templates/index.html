@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
-        integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
     <title>I.Generator</title>
 </head>
-<body>
+<body style="margin: 10px;">
     <header>
 <!--main navigation taken from materialise-->
         <nav class="nav-extended text-shadow">
             <div class="nav-wrapper">
-                <a href="{{ url_for('get_ideas') }}" class="brand-logo">I.Generator</a>
+                <a href="{{ url_for('get_ideas') }}" class="brand-logo" style="padding-left: 10px">I.Generator</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_ideas') }}">Home</a></li>
@@ -55,10 +53,9 @@
         <div class="row">
             <div class="center-align col-12">
                 <h3 class="introduction-text"></h3>
-                <h6 class="center-align introduction-text"><b>“Ideas are like fish.<br> 
-                    If you want to catch little fish, you can stay in the shallow water.<br> 
-                    But if you want to catch the big fish, you’ve got to go deeper.<br>
-                    Down deep, the fish are more powerful and more pure.They’re huge and abstract.<br> 
+                <h6 class="center-align introduction-text"><b style="line-height: 2;">“Ideas are like fish. If you want to catch little fish, you can stay in the shallow water.<br>
+                     But if you want to catch the big fish, you’ve got to go deeper. <br>
+                    Down deep, the fish are more powerful and more pure.They’re huge and abstract.<br>
                     And they’re very beautiful.” - David Lynch</b></h6>
             </div>
         </div>
