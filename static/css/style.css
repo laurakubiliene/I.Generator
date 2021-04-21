@@ -8,19 +8,31 @@ html {
 
 .nav-extended {
     background-color: #3C455C;
+    padding: 24px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .sidenav {
     background-color: #3C455C;
     color: #9AACB8;
+    font-family: 'Quicksand', sans-serif;
 }
 
-.introduction-text {
-    color: #3C455C;
+.brand-logo {
+    padding-right: 5px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .introduction-section {
     background-color: #9AACB8;
+    padding: 24px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.introduction-text {
+    color: #3C455C;
+    line-height: 3;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .card-panel {
@@ -30,6 +42,7 @@ html {
 .card {
     background-color: #3C455C;
     color: #9AACB8;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .btn-large {
@@ -40,11 +53,19 @@ html {
 .collapsible-header {
     background-color: #9AACB8;
     color: #3C455C;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .collapsible-body {
     background-color: #9AACB8;
     color: #3C455C;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.collapsible-header .col strong {
+    margin: 5px;
+    line-height: 42px;
+    color: #3C455C;  
 }
 
 
@@ -82,10 +103,7 @@ html {
     margin: 5px;
     background-color: #3C455C;
     color: #9AACB8;
+    font-family: 'Quicksand', sans-serif;
 }
 
-.collapsible-header .col strong {
-    margin: 5px;
-    line-height: 42px;
-    color: #3C455C;  
-}
+
