@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Quicksand', sans-serif;
+}
+
 .nav-extended {
     background-color: #3C455C;
-}
-body {
-    scroll-behavior: smooth;
 }
 
 .sidenav {
@@ -31,23 +36,16 @@ body {
     color: #9AACB8;
 }
 
-/* CSS - from https://css-tricks.com/star-ratings/ */
-.rating {
-  unicode-bidi: bidi-override;
-  direction: rtl;
+.collapsible-header {
+    background-color: #9AACB8;
+    color: #3C455C;
 }
 
-.rating > span {
-  display: inline-block;
-  position: relative;
-  width: 1.1em;
+.collapsible-body {
+    background-color: #9AACB8;
+    color: #3C455C;
 }
 
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-   content: "\2605";
-   position: absolute;
-}
 
 /* I took this css from materialise to edit colours and style*/
 /* label color */

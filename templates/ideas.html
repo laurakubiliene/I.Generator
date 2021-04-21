@@ -21,7 +21,7 @@
     <ul class="collapsible">
         {% for idea in ideas %}
         <li>
-            <div class="collapsible-header"><i class="material-icons"></i>
+            <div class="collapsible-header">
                 <div class="col s3">
                     {% if session.user|lower == idea.created_by|lower %}
                     <a href="{{ url_for('delete_idea', idea_id=idea._id)}}" class="btn-small">Delete</a>
@@ -29,7 +29,7 @@
                     {% endif %}
                 </div>
                 <div class="col s9">
-                    <strong>{{ idea.category_name }}</strong> : {{ idea.date }}
+                    <strong class="category_name">{{ idea.category_name }}</strong> : {{ idea_date }}
                 </div>
             </div>
             <div class="collapsible-body"><strong>{{ idea.category_name }}</strong>
