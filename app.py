@@ -105,92 +105,105 @@ def signout():
 
 @app.route("/add_idea", methods=["GET", "POST"])
 def add_idea():
-    if request.method == "POST":
-        idea = {
-            "category_name": request.form.get("category_name"),
-            "idea_name": request.form.get("idea_name"),
-            "idea_description": request.form.get("idea_description"),
-            "idea_date": request.form.get("idea_date"),
-            "created_by": session["user"]
-        }
-        mongo.db.ideas.insert_one(idea)
-        flash("Idea Successfully Added")
-        return redirect(url_for("get_ideas"))
+    if "user" in session:
+        if request.method == "POST":
+            idea = {
+                "category_name": request.form.get("category_name"),
+                "idea_name": request.form.get("idea_name"),
+                "idea_description": request.form.get("idea_description"),
+                "idea_date": request.form.get("idea_date"),
+                "created_by": session["user"]
+            }
+            mongo.db.ideas.insert_one(idea)
+            flash("Idea Successfully Added")
+            return redirect(url_for("get_ideas"))
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_idea.html", categories=categories)
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        return render_template("add_idea.html", categories=categories)
+    return redirect(url_for("signin"))
 
 
 
 @app.route("/edit_idea/<idea_id>", methods=["GET", "POST"])
 def edit_idea(idea_id):
-    if request.method == "POST":
-        submit = {
-            "category_name": request.form.get("category_name"),
-            "idea_name": request.form.get("idea_name"),
-            "idea_description": request.form.get("idea_description"),
-            "idea_date": request.form.get("idea_date"),
-            "created_by": session["user"]
-        }
-        mongo.db.ideas.update({"_id": ObjectId(idea_id)}, submit)
-        flash("Idea Successfully Updated")
+    if "user" in session:
+        if request.method == "POST":
+            submit = {
+                "category_name": request.form.get("category_name"),
+                "idea_name": request.form.get("idea_name"),
+                "idea_description": request.form.get("idea_description"),
+                "idea_date": request.form.get("idea_date"),
+                "created_by": session["user"]
+            }
+            mongo.db.ideas.update({"_id": ObjectId(idea_id)}, submit)
+            flash("Idea Successfully Updated")
 
-    idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
+        idea = mongo.db.ideas.find_one({"_id": ObjectId(idea_id)})
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("edit_idea.html", idea=idea, categories=categories)
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        return render_template("edit_idea.html", idea=idea, categories=categories)
+    return redirect(url_for("signin"))
 
 
 
 @app.route("/delete_idea/<idea_id>")
 def delete_idea(idea_id):
-    mongo.db.ideas.remove({"_id": ObjectId(idea_id)}, 'submit')
-    flash("Idea Successfully Removed")
-    return redirect(url_for("get_ideas"))
+    if "user" in session:
+        mongo.db.ideas.remove({"_id": ObjectId(idea_id)}, 'submit')
+        flash("Idea Successfully Removed")
+        return redirect(url_for("get_ideas"))
+    return redirect(url_for("signin"))
 
 
 
 @app.route("/get_categories")
 def get_categories():
-    categories = list(mongo.db.categories.find().sort('category_name', 1))
-    return render_template("categories.html", categories=categories)
+    if "user" in session:
+        categories = list(mongo.db.categories.find().sort('category_name', 1))
+        return render_template("categories.html", categories=categories)
+    return redirect(url_for("signin"))
 
 
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
-    if request.method == "POST":
-        category = {"category_name": request.form.get("category_name")}
-        mongo.db.categories.insert_one(category)
-        flash("Category Successfully Added")
-        return redirect(url_for("get_categories"))
+    if "user" in session:
+        if request.method == "POST":
+            category = {"category_name": request.form.get("category_name")}
+            mongo.db.categories.insert_one(category)
+            flash("Category Successfully Added")
+            return redirect(url_for("get_categories"))
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_category.html", categories=categories)
+        categories = mongo.db.categories.find().sort("category_name", 1)
+        return render_template("add_category.html", categories=categories)
+    return redirect(url_for("signin"))
 
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
-    if request.method == "POST":
-        submit = {
-            "category_name": request.form.get("category_name")
-        }
-        mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
-        flash("Category Successfully Updated")
-        return redirect(url_for("get_categories"))
+    if "user" in session:
+        if request.method == "POST":
+            submit = {
+                "category_name": request.form.get("category_name")
+            }
+            mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
+            flash("Category Successfully Updated")
+            return redirect(url_for("get_categories"))
 
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    return render_template("edit_category.html", category=category)
+        category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+        return render_template("edit_category.html", category=category)
+    return redirect(url_for("signin"))
 
 
 
 
 @app.route("/delete_category/<category_id>") 
 def delete_category(category_id):
-    mongo.db.categories.remove({"_id": ObjectId(category_id)}, 'submit')
-    flash("Category Successfully Removed")
-    return redirect(url_for("get_categories"))
-
+    if "user" in session:
+        mongo.db.categories.remove({"_id": ObjectId(category_id)}, 'submit')
+        flash("Category Successfully Removed")
+        return redirect(url_for("get_categories"))
+    return redirect(url_for("signin"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
