@@ -38,6 +38,8 @@ reading texts that are advertising or filing the forms that appear to be unneces
 ###### Sceleton
 
 Using these wireframes were created to support the idea of a site.
+https://drive.google.com/file/d/1n0CJuzZ6eUfpdA89BL1KIw0zI2YSh3gm/view?usp=sharing
+
 
 ###### Surface
 
@@ -85,6 +87,7 @@ Opened and tested features with different gadgets such as laptop, tablet, differ
 
 This project was deployed to heroku as showed on the course and 
 I am lucky as there were no issues with deploying the whole project as well as adding different prts to it.
+Css features seem to come later though.
 
 ###### Content
 
