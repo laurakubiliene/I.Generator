@@ -3,7 +3,7 @@
 
     <h3 class="center-align">All Ideas</h3>
 
-    <div class="row card-panel" style="box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);">
+    <div class="row card-panel">
         <form action="{{ url_for('search') }}" method="post" class="col s12">
             <div class="row valign-wrapper center-align">
                 <div class="input-field col s12 m8">
@@ -32,7 +32,7 @@
                     <strong class="category_name">{{ idea.category_name }}</strong> : {{ idea.idea_date }}
                 </div>
             </div>
-            <div class="collapsible-body"><strong>{{ idea.idea_name }}</strong>
+            <div class="collapsible-body" style="font-weight: 900;"><strong style="font-weight: 900;">{{ idea.idea_name }}</strong>
                 <p>{{ idea.idea_description }}<br></p>
                 <p><em>by: {{ idea.created_by}}</em></p>
             </div>

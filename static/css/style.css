@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    margin: auto;
+    margin: 10px;
 }
 
 .nav-extended {
@@ -16,6 +16,7 @@ body {
 
 .nav-wrapper {
     font-family: 'Quicksand', sans-serif;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
 }
 
 .sidenav {
@@ -24,8 +25,13 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+.nav-li {
+    color: #9AACB8;
+    font-family: 'Quicksand', sans-serif;
+}
+
 .brand-logo {
-    padding-left: 450px;
+    padding-left: 10px;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -40,10 +46,12 @@ h6.center-align.introduction-text {
     line-height: 2;
     font-family: 'Quicksand', sans-serif;
     margin: 10px;
+    line-height: 2;
 }
 
 .card-panel {
     background-color: #9AACB8;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
 }
 
 .card {
@@ -58,15 +66,23 @@ h6.center-align.introduction-text {
 }
 
 .collapsible-header {
-    background-color: #9AACB8;
     color: #3C455C;
     font-family: 'Quicksand', sans-serif;
+    font-weight: 900;
 }
 
 .collapsible-body {
-    background-color: #9AACB8;
     color: #3C455C;
     font-family: 'Quicksand', sans-serif;
+    font-weight: 900;
+}
+
+.strong {
+    font-weight: 900;
+}
+
+.category_name {
+    font-weight: 900;
 }
 
 .collapsible-header .col strong {
